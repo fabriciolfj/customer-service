@@ -11,7 +11,8 @@ public class CreateCustomerCase {
 
     private final PersistCustomer persistCustomer;
 
-    public void execute(final Customer customer) {
+    public Customer execute(final Customer customer) {
         persistCustomer.save(customer);
+        return customer;
     }
 }

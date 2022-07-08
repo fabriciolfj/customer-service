@@ -25,4 +25,6 @@ public class CustomerData {
     private String code;
     @Column(name = "phone")
     private String phone;
+    @Column(name = "name")
+    private String name;
 }

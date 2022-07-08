@@ -13,6 +13,7 @@ public class Customer {
 
     @EqualsAndHashCode.Include
     private String code;
+    private String name;
     private String document;
     private String phone;
 }
