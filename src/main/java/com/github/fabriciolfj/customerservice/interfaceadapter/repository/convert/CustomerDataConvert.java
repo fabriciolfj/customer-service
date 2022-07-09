@@ -14,6 +14,7 @@ public class CustomerDataConvert {
                 .code(customer.getCode())
                 .document(customer.getDocument())
                 .phone(customer.getPhone())
+                .name(customer.getName())
                 .build();
     }
 

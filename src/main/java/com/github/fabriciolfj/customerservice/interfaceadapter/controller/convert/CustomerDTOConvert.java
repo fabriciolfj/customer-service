@@ -15,6 +15,8 @@ public class CustomerDTOConvert {
     public static CustomerResponse toResponse(final Customer customer) {
         return CustomerResponse.builder()
                 .code(customer.getCode())
+                .document(customer.getDocument())
+                .name(customer.getName())
                 .build();
     }
 

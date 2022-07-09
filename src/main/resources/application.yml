@@ -8,7 +8,7 @@ spring:
   main:
     lazy-initialization: true
   datasource:
-    url: jdbc:postgresql://localhost:5433/product
+    url: jdbc:postgresql://localhost:5432/postgres
     username: root
     password: root
   application:

@@ -2,6 +2,7 @@ package com.github.fabriciolfj.customerservice.interfaceadapter.provider;
 
 import com.github.fabriciolfj.customerservice.business.PersistCustomer;
 import com.github.fabriciolfj.customerservice.entities.Customer;
+import com.github.fabriciolfj.customerservice.exceptions.DocumentDuplicateException;
 import com.github.fabriciolfj.customerservice.exceptions.SaveException;
 import com.github.fabriciolfj.customerservice.interfaceadapter.repository.CustomerRepository;
 import com.github.fabriciolfj.customerservice.interfaceadapter.repository.convert.CustomerDataConvert;
@@ -21,6 +22,16 @@ public class CustomerProvider implements PersistCustomer {
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void save(final Customer customer) {
+        var result = repository.findByDocument(customer.getDocument());
+
+        if (result.isPresent()) {
+            throw new DocumentDuplicateException();
+        }
+
+        executeSave(customer);
+    }
+
+    private void executeSave(Customer customer) {
         try {
              repository.save(CustomerDataConvert.toData(customer));
         } catch (Exception e) {

@@ -4,7 +4,9 @@ import java.util.ResourceBundle;
 
 public enum Errors {
 
-    SAVE_ERROR;
+    NOT_FOUND,
+    SAVE_ERROR,
+    DOCUMENT_DUPLICATE;
 
 
     public String getMessage() {

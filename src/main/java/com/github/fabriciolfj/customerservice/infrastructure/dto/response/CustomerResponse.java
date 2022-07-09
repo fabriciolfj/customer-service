@@ -11,4 +11,6 @@ import lombok.*;
 public class CustomerResponse {
 
     private String code;
+    private String document;
+    private String name;
 }
