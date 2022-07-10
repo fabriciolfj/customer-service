@@ -12,7 +12,7 @@ spring:
     username: root
     password: root
   application:
-    name: product
+    name: customer-service
   flyway:
     locations:
       - classpath:db/migration

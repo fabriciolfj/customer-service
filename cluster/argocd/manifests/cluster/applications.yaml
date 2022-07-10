@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: product
+  name: customer
   namespace: argocd
 spec:
   syncPolicy:
@@ -12,10 +12,10 @@ spec:
       prune: true # caso exclua algum arquivo, o argo vai excluir o recurso no kubernetes
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: product
+    namespace: customer
   source:
     path: helm
-    repoURL: 'https://github.com/fabriciolfj/spring-fast-argocd'
+    repoURL: 'https://github.com/fabriciolfj/customer-service-k8s'
     targetRevision: HEAD
     helm:
       valueFiles:
