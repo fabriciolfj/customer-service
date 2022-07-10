@@ -50,8 +50,8 @@ jobs:
           docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-            - name: Update values.yaml
-      - uses: fjogeleit/yaml-update-action@v0.10.0
+      - name: Update values.yaml
+        uses: fjogeleit/yaml-update-action@v0.10.0
         with:
           valueFile: 'helm/values.yaml'
           propertyPath: 'image.tag'
