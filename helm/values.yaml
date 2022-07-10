@@ -1,0 +1,7 @@
+app:
+  name: customer-service
+  replicas: 2
+image:
+  repository: fabricio211/customer-service
+  tag: tag.version
+  registry: docker.io
