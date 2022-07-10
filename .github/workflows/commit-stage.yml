@@ -27,7 +27,7 @@ jobs:
           token: ${{ secrets.SPRING_FAST }}
           targetBranch: main
           branch: main
-          repository: fabriciolfj/customer-service
+          repository: fabriciolfj/customer-service-k8s
   package:
     name: Package and Publish
     needs: [ build ]
