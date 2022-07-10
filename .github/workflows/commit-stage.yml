@@ -1,11 +1,14 @@
 name: Commit Stage
-on: push
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
 
 env:
   REGISTRY: docker.io
   IMAGE_NAME: fabricio211/product-service
   VERSION: ${{ github.sha }}
-
 
 jobs:
   build:
