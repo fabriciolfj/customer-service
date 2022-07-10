@@ -72,8 +72,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>com.github.fabriciolfj.customerservice.CustomerServiceApplication</mainClass>
 					<image>
-						<name>docker.io/fabricio211/customer-service</name>
+						<name>docker.io/fabricio211/${project.artifactId}</name>
+						<env>
+							<BP_JVM_VERSION>17</BP_JVM_VERSION>
+						</env>
 					</image>
 					<layers>
 						<enabled>true</enabled>
@@ -84,6 +88,11 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<executable>true</executable>
+					<jvmArguments>
+						-Xms256m
+						-Xmx1g
+					</jvmArguments>
 				</configuration>
 			</plugin>
 		</plugins>
