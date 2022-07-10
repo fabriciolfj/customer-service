@@ -1,9 +1,5 @@
 name: Commit Stage
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - dev
+on: push
 
 env:
   REGISTRY: docker.io
