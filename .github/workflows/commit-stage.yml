@@ -3,8 +3,9 @@ on: push
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: fabricio211/customer-service
+  IMAGE_NAME: fabricio211/product-service
   VERSION: ${{ github.sha }}
+
 
 jobs:
   build:
@@ -16,6 +17,18 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
+      - name: Update values.yaml
+        uses: fjogeleit/yaml-update-action@v0.10.0
+        with:
+          valueFile: 'helm/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ env.VERSION }}
+          commitChange: true
+          updateFile: true
+          token: ${{ secrets.SPRING_FAST }}
+          targetBranch: main
+          branch: main
+          repository: fabriciolfj/customer-service-k8s
   package:
     name: Package and Publish
     needs: [ build ]
@@ -50,3 +63,4 @@ jobs:
           docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+
