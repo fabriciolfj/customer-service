@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+  labels:
+    db: postgresql
+spec:
+  selector:
+    matchLabels:
+      db: postgresql
+  template:
+    metadata:
+      labels:
+        db: postgresql
+    spec:
+      containers:
+        - name: postgresql
+          image: bitnami/postgresql
+          env:
+            - name: POSTGRES_USER
+              value: root
+            - name: POSTGRES_PASSWORD
+              value: root
+          resources:
+            requests:
+              cpu: 100m
+              memory: 60Mi
+            limits:
+              cpu: 200m
+              memory: 120Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+  labels:
+    db: postgresql
+spec:
+  type: ClusterIP
+  selector:
+    db: postgresql
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
