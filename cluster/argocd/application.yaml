@@ -6,7 +6,7 @@ server:
       source:
         repoURL: https://github.com/fabriciolfj/customer-service
         targetRevision: HEAD
-        path: argocd/manifests/cluster
+        path: cluster/argocd/manifests/cluster
         directory:
           recurse: true
       destination:
