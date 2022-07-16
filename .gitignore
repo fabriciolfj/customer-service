@@ -24,3 +24,7 @@ hs_err_pid*
 /.idea/
 
 target/
+
+*.hcl
+
+cluster/.terraform/providers/registry.terraform.io
