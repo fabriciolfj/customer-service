@@ -6,7 +6,7 @@ metadata:
 spec:
   syncPolicy:
     syncOptions:
-      - CreateNamespace=false
+      - CreateNamespace=true
     automated:
       selfHeal: true # sincronizar automaticamente com o repositorio
       prune: true # caso exclua algum arquivo, o argo vai excluir o recurso no kubernetes
