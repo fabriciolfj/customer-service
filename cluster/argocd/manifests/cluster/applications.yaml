@@ -20,3 +20,4 @@ spec:
     helm:
       valueFiles:
         - values.yaml
+  project: default
