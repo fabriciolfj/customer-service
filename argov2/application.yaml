@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/helm
+    path: helm
     repoURL: https://github.com/fabriciolfj/customer-service-k8s
     targetRevision: HEAD
     helm:
