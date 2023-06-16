@@ -1,9 +1,10 @@
 package com.github.fabriciolfj.customerservice.infrastructure.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.validation.constraints.NotBlank;
+
 
 @Getter
 @Setter
